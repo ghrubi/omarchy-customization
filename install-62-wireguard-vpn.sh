@@ -22,7 +22,7 @@ echo "$NAME installation complete!"
 # Check for command
 if ! command -v $COMMAND &> /dev/null; then
     echo "$COMMAND command not found, linking to $LINK_TO..."
-    ln -s $LINK_TO $LOCAL_BIN
+    sudo ln -s $LINK_TO $LOCAL_BIN
 else
     echo "$COMMAND command found."
 fi

@@ -17,7 +17,7 @@ fi
 
 # Determine the stow directory
 if [ -z "${STOW_DIR:-}" ]; then
-  STOW_DIR="$DEFAULT_STOW_DIR"
+  export STOW_DIR="$DEFAULT_STOW_DIR"
 fi
 
 cd "$HOME"
@@ -30,6 +30,7 @@ else
   git clone "$REPO_URL"
 fi
 
+#cd "$STOW_DIR"
 
 for PACKAGE in "${PACKAGES[@]}"; do
   SOURCE="$STOW_DIR/$PACKAGE" bash -c '
@@ -57,6 +58,6 @@ for PACKAGE in "${PACKAGES[@]}"; do
     fi
   done < <(find "$SOURCE" -type f -print0 | sort -z)'
 
-  stow -t $HOME $PACKAGE
+  stow -t "$HOME" $PACKAGE
 done
 

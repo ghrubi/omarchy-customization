@@ -13,7 +13,7 @@ echo "Setting up $CONFIG_NAME config..."
 if [ ! -f "$CONFIG" ]; then
     echo "$CONFIG_NAME config not found at $CONFIG"
     echo "Please install $CONFIG_NAME first"
-    exit 1
+    exit 0
 fi
 
 # Check if config line already exists in hyprland.conf
