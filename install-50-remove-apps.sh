@@ -29,13 +29,13 @@ echo "Starting removal of unwanted applications..."
 # Loop through each application and remove it
 for APP in "${APPS_TO_REMOVE[@]}"; do
     echo "Removing $APP..."
-    sudo pacman -Rns --noconfirm '$APP' 2>/dev/null
+    sudo pacman -Rns --noconfirm $APP 2>/dev/null
 done
 
 echo "Starting removal of unwanted web applications..."
 # Loop through each web application and remove it
 for WEBAPP in "${WEBAPPS_TO_REMOVE[@]}"; do
     echo "Removing web application $WEBAPP..."
-    omarchy-webapp-remove '$webapp' >/dev/null 2>&1
+    omarchy-webapp-remove $WEBAPP >/dev/null 2>&1
 done
 
