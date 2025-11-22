@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Get the directory of the current script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 PACKAGES=("bash" "hypr" "nvim" "starship")
 
 REPO_NAME="dotfiles"
@@ -20,6 +23,7 @@ if [ -z "${STOW_DIR:-}" ]; then
   export STOW_DIR="$DEFAULT_STOW_DIR"
 fi
 
+# Home for the repo check and, possible, clone
 cd "$HOME"
 
 # Clone the repository if it doesn't exist
@@ -30,7 +34,8 @@ else
   git clone "$REPO_URL"
 fi
 
-#cd "$STOW_DIR"
+# Back to this directory
+cd "$SCRIPT_DIR"
 
 for PACKAGE in "${PACKAGES[@]}"; do
   SOURCE="$STOW_DIR/$PACKAGE" bash -c '
