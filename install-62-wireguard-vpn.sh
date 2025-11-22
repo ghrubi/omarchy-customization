@@ -2,15 +2,21 @@
 
 NAME="WireGuard VPN"
 SCRIPT_URL="https://raw.githubusercontent.com/JacobusXIII/omarchy-wireguard-vpn-toggle/main/install.sh"
-INSTALL_CMD="curl -fsSL $SCRIPT_URL | bash"
+INSTALL_CMD="install-wireguard.sh"
+DOWNLOAD_CMD="curl -fsSL $SCRIPT_URL"
 DIRECTORY="/etc/wireguard"
 COMMAND="resolvconf"
 LOCAL_BIN="/usr/local/bin/$COMMAND"
 LINK_TO="/usr/bin/resolvectl"
 
-# Install 
+# Install
 echo "Installing $NAME..."
-($INSTALL_CMD)
+
+yay -S --noconfirm --needed wireguard-tools waybar jq
+
+($DOWNLOAD_CMD) > $INSTALL_CMD
+chmod +x $INSTALL_CMD
+./$INSTALL_CMD
 
 if [ ! -d "$DIRECTORY" ]; then
     echo "$DIRECTORY does not exist, creating..."
