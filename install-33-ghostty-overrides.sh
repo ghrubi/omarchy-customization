@@ -5,7 +5,7 @@ set -e
 CONFIG_NAME="Ghostty Config"
 CONFIG="$HOME/.config/ghostty/config"
 OVERRIDES_CONFIG="$HOME/.config/ghostty/config-overrides.conf"
-SOURCE_LINE="source = $OVERRIDES_CONFIG"
+SOURCE_LINE="config-file = ?$OVERRIDES_CONFIG"
 
 echo "Setting up $CONFIG_NAME overrides..."
 #echo "$CONFIG_NAME config path: $CONFIG"
