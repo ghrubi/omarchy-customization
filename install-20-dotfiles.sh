@@ -3,7 +3,7 @@
 # Get the directory of the current script
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-PACKAGES=("bash" "hypr" "nvim" "ghostty" "starship" "bin")
+PACKAGES=("aliases-bash-zsh" "bash" "zsh" "hypr" "nvim" "ghostty" "starship" "bin")
 
 REPO_NAME="dotfiles"
 REPO_URL="https://github.com/ghrubi/$REPO_NAME.git"
