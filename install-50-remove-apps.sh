@@ -15,6 +15,7 @@ APPS_TO_REMOVE=(
 WEBAPPS_TO_REMOVE=(
     "HEY"
     "Basecamp"
+    "Fizzy"
     "WhatsApp"
     "Google Photos"
     "Google Contacts"

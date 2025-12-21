@@ -15,4 +15,5 @@ mega-login $USERNAME $user_password
 
 # Set up synchronization between local MEGA folder and local directory
 echo "Setting up synchronization between $MEGA_DIR and $LOCAL_DIR"
+mkdir $MEGA_DIR
 mega-sync $MEGA_DIR $LOCAL_DIR
