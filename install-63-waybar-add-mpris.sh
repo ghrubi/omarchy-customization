@@ -47,7 +47,7 @@ update_waybar_config() {
     mv "${config_file}.tmp" "${config_file}"
     echo "Added mpris to modules-left after hyprland/workspaces"
   else
-    echo "Could not find modules-right in config"
+    echo "Could not find modules-left in config"
   fi
 
   # Add mpris module definition
