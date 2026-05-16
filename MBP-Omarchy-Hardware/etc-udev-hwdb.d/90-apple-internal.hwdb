@@ -1,0 +1,4 @@
+# Force Apple internal keyboard/trackpad to be treated as internal
+evdev:input:b0003v05ACp0340*
+ ID_INPUT_TOUCHPAD_INTEGRATION=internal
+ ID_INPUT_KEYBOARD_INTEGRATION=internal

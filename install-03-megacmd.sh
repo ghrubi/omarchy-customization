@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install megacmd-bin from AUR
-yay -S --noconfirm --needed megacmd-bin fuse
+# yay -S --noconfirm --needed megacmd-bin fuse
+yay -S --noconfirm --needed megacmd fuse
 
 # Configure
 USERNAME="ghrubi@yahoo.com"

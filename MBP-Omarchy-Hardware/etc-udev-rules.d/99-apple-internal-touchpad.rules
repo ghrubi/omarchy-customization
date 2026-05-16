@@ -1,0 +1,5 @@
+ACTION=="add|change", KERNEL=="event*", \
+  ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="0340", \
+  ENV{ID_INPUT_TOUCHPAD}=="1", \
+  ENV{ID_INPUT_TOUCHPAD_INTEGRATION}="internal", \
+  ENV{ID_INTEGRATION}="internal"

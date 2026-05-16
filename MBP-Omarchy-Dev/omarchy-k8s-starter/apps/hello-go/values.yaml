@@ -1,0 +1,15 @@
+nameOverride: hello-go
+
+image:
+  repository: k3d-omarchy-registry:5000/hello-go
+  tag: latest
+  pullPolicy: IfNotPresent
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+
+env:
+  PORT: "8080"

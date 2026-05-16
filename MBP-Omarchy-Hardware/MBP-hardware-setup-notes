@@ -1,0 +1,37 @@
+Remove hypridle customizations and go with the default
+
+Update bindings-overrides.config to include the MBP touchbar updates. Remove Macbook Air bindings
+
+Run sensors | grep fan to find number of and names (fan1, fan2) and add entries for additional fans in /etc/t2fand.conf
+  check t2fanrd.service status (yes, t2fanrd.service, not t2fand like the config filename) systemctl status t2fanrd.service
+Find out how to fix the trackpad while typing. Also why libinput isn't found
+  pacman -S libinput-tools to give you libinput list-devices command. This shows you the devices and names
+  chatGPT in Omarchy. Seems good now!
+
+  sudo nvim /etc/udev/hwdb.d/90-apple-internal.hwdb
+  ---
+  # Force Apple internal keyboard/trackpad to be treated as internal
+evdev:input:b0003v05ACp0340*
+ ID_INPUT_TOUCHPAD_INTEGRATION=internal
+ ID_INPUT_KEYBOARD_INTEGRATION=internal
+  ---
+
+  sudo nvim /etc/udev/rules.d/99-apple-internal-touchpad.rules
+  ---
+  ACTION=="add|change", KERNEL=="event*", \
+  ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="0340", \
+  ENV{ID_INPUT_TOUCHPAD}=="1", \
+  ENV{ID_INPUT_TOUCHPAD_INTEGRATION}="internal", \
+  ENV{ID_INTEGRATION}="internal"
+  ---
+
+  sudo systemd-hwdb update
+  sudo udevadm control --reload
+  sudo udevadm trigger
+  sudo sysctl vm.swappiness=10 # might be helpful agaist the jumping cursor
+
+This is more text to test the typing issues.
+
+So far it seems good, but I need to continue using.
+
+For wireguard imports, remove spaces from config names

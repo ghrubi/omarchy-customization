@@ -1,0 +1,25 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+
+metadata:
+  name: hello-go
+
+build:
+  local:
+    push: true
+  artifacts:
+    - image: k3d-omarchy-registry:5000/hello-go
+      context: .
+
+deploy:
+  helm:
+    releases:
+      - name: hello-go
+        chartPath: ../../charts/app
+        namespace: apps
+        createNamespace: true
+        valuesFiles:
+          - values.yaml
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_k3d_omarchy_registry_5000_hello_go}}"
+          image.tag: "{{.IMAGE_TAG_k3d_omarchy_registry_5000_hello_go}}"
