@@ -1,0 +1,15 @@
+[Unit]
+Description=Fix T2 suspend
+Before=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl stop tiny-dfr
+ExecStart=-/usr/bin/rmmod -f hid_appletb_kbd
+ExecStart=-/usr/bin/rmmod -f hid_appletb_bl
+ExecStart=-/usr/bin/rmmod -f appletbdrm
+ExecStart=-/usr/bin/rmmod -f apple_bce
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sleep.target

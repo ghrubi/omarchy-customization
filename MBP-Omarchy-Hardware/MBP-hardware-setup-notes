@@ -1,4 +1,4 @@
-Remove hypridle customizations and go with the default
+Remove hypridle customizations and go with the default for both MBA & MBP
 
 Update bindings-overrides.config to include the MBP touchbar updates. Remove Macbook Air bindings
 
@@ -30,8 +30,57 @@ evdev:input:b0003v05ACp0340*
   sudo udevadm trigger
   sudo sysctl vm.swappiness=10 # might be helpful agaist the jumping cursor
 
-This is more text to test the typing issues.
+MBP Suspend:
+/etc/systemd/system/suspend-fix-t2.service:
+[Unit]
+Description=Fix T2 suspend
+Before=sleep.target
 
-So far it seems good, but I need to continue using.
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl stop tiny-dfr
+ExecStart=-/usr/bin/rmmod -f hid_appletb_kbd
+ExecStart=-/usr/bin/rmmod -f hid_appletb_bl
+ExecStart=-/usr/bin/rmmod -f appletbdrm
+ExecStart=-/usr/bin/rmmod -f apple_bce
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sleep.target
+
+/etc/systemd/system/resume-fix-t2.service:
+[Unit]
+Description=Reload T2 modules after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sleep 4
+ExecStart=/usr/bin/modprobe apple_bce
+ExecStart=/usr/bin/sleep 4
+ExecStart=/usr/bin/modprobe hid_appletb_bl
+ExecStart=/usr/bin/sleep 2
+ExecStart=/usr/bin/modprobe hid_appletb_kbd
+ExecStart=/usr/bin/sleep 2
+ExecStart=/usr/bin/bash -c "echo 0 > /sys/bus/usb/devices/7-6/bConfigurationValue"
+ExecStart=/usr/bin/sleep 1
+ExecStart=/usr/bin/bash -c "echo 2 > /sys/bus/usb/devices/7-6/bConfigurationValue"
+ExecStart=/usr/bin/sleep 3
+ExecStart=/usr/bin/systemctl restart tiny-dfr
+
+[Install]
+WantedBy=suspend.target
+
+/etc/systemd/sleep.conf:
+AllowHibernation=no
+AllowSuspendThenHibernate=no
+
+Then run:
+sudo systemctl enable suspend-fix-t2.service
+sudo systemctl enable resume-fix-t2.service
+sudo systemctl daemon-reload
+
+Add to bindings-overrides.config:
+bindl = , switch:on:Lid Switch, exec, systemctl suspend
 
 For wireguard imports, remove spaces from config names

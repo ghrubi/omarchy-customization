@@ -1,0 +1,21 @@
+[Unit]
+Description=Reload T2 modules after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sleep 4
+ExecStart=/usr/bin/modprobe apple_bce
+ExecStart=/usr/bin/sleep 4
+ExecStart=/usr/bin/modprobe hid_appletb_bl
+ExecStart=/usr/bin/sleep 2
+ExecStart=/usr/bin/modprobe hid_appletb_kbd
+ExecStart=/usr/bin/sleep 2
+ExecStart=/usr/bin/bash -c "echo 0 > /sys/bus/usb/devices/7-6/bConfigurationValue"
+ExecStart=/usr/bin/sleep 1
+ExecStart=/usr/bin/bash -c "echo 2 > /sys/bus/usb/devices/7-6/bConfigurationValue"
+ExecStart=/usr/bin/sleep 3
+ExecStart=/usr/bin/systemctl restart tiny-dfr
+
+[Install]
+WantedBy=suspend.target
