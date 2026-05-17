@@ -18,7 +18,22 @@ create: registry
 delete:
 	k3d cluster delete $(CLUSTER_NAME) || true
 
+clean:
+	k3d cluster delete $(CLUSTER_NAME) || true
+	k3d registry delete $(REGISTRY_NAME) || true
+
 restart: delete create
+
+status:
+	k3d cluster list
+	k3d registry list
+	docker ps --filter "name=k3d-$(CLUSTER_NAME)" --filter "name=k3d-$(REGISTRY_NAME)"
+
+nuke:
+	docker rm -f $$(docker ps -aq --filter "name=k3d-$(CLUSTER_NAME)") 2>/dev/null || true
+	docker rm -f k3d-$(REGISTRY_NAME) 2>/dev/null || true
+	docker network rm k3d-$(CLUSTER_NAME) 2>/dev/null || true
+	docker volume rm k3d-$(CLUSTER_NAME)-images 2>/dev/null || true
 
 nodes:
 	kubectl get nodes -o wide
