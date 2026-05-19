@@ -30,6 +30,9 @@ evdev:input:b0003v05ACp0340*
   sudo udevadm trigger
   sudo sysctl vm.swappiness=10 # might be helpful agaist the jumping cursor
 
+MBP Keyboard backlight doesn't come back on after screen lock and screen
+omarchy-system-wake: put keyboard backlight first
+
 MBP Suspend:
 /etc/systemd/system/suspend-fix-t2.service:
 [Unit]
