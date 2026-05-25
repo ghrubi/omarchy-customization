@@ -2,6 +2,11 @@ Remove hypridle customizations and go with the default for both MBA & MBP
 
 Update bindings-overrides.config to include the MBP touchbar updates. Remove Macbook Air bindings
 
+# /etc/tiny-dfr/config.toml
+# F{number} keys are shown when Fn is not pressed by default.
+# Set this to true if you want the media keys to be shown without Fn pressed
+MediaLayerDefault = true
+
 Run sensors | grep fan to find number of and names (fan1, fan2) and add entries for additional fans in /etc/t2fand.conf
   check t2fanrd.service status (yes, t2fanrd.service, not t2fand like the config filename) systemctl status t2fanrd.service
 Find out how to fix the trackpad while typing. Also why libinput isn't found
