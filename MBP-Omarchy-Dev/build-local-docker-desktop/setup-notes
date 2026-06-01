@@ -1,0 +1,16 @@
+Install:
+sudo pacman -S docker docker-compose kubectl skaffold k9s
+yay -S rancher-k3d-bin
+
+Install helm-v3:
+cp helm-v3.15.4-linux-amd64.tar.gz ~/Downloads
+tar -xzf helm-v3.15.4-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+sudo chmod +x /usr/local/bin/helm
+
+Setup Docker:
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+
+Build Docker Desktop Replacement:
+make create
