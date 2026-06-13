@@ -1,0 +1,11 @@
+# Dev tools
+kubectl
+skaffold
+k9s
+rancher-k3d-bin
+
+# Languages
+go
+
+# Extras
+stripe

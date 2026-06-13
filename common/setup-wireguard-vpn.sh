@@ -10,8 +10,6 @@ LINK_TO="/usr/bin/resolvectl"
 # Install
 echo "Installing $NAME..."
 
-yay -S --noconfirm --needed wireguard-tools waybar jq
-
 # Download and run the installation script
 curl -fsSL "$SCRIPT_URL" | bash
 

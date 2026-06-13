@@ -1,3 +1,3 @@
 # omarchy-customization scripts and files
 
-./install-all.sh: Script to install all customization files
+./install.sh: Script to install all apps and customizations. Script will determine the correct host for host-specific setups

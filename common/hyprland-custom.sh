@@ -2,14 +2,14 @@
 
 set -e
 
-CONFIG_NAME="Hyprland Bindings"
-CONFIG="$HOME/.config/hypr/bindings.conf"
-OVERRIDES_CONFIG="$HOME/.config/hypr/bindings-overrides.conf"
+CONFIG_NAME="Hyprland"
+CONFIG="$HOME/.config/hypr/hyprland.conf"
+OVERRIDES_CONFIG="$HOME/.config/hypr/custom.conf"
 SOURCE_LINE="source = $OVERRIDES_CONFIG"
 
 echo "Setting up $CONFIG_NAME overrides..."
-#echo "$CONFIG_NAME config path: $CONFIG"
-#echo "Overrides config path: $OVERRIDES_CONFIG"
+# echo "$CONFIG_NAME config path: $CONFIG"
+# echo "Overrides config path: $OVERRIDES_CONFIG"
 
 # Check if hyprland config exists
 if [ ! -f "$CONFIG" ]; then
