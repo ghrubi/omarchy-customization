@@ -75,3 +75,4 @@ update_waybar_config() {
 }
 
 update_waybar_config
+omarchy-restart-waybar

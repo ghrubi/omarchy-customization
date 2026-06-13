@@ -1,0 +1,43 @@
+stow
+bitwarden
+
+# Browsers
+brave-bin
+thorium-browser-bin
+
+# Messengers
+telegram-desktop
+slack-desktop
+
+# All for yazi
+yazi
+ffmpeg
+7zip
+jq
+poppler
+fd
+ripgrep
+fzf
+zoxide
+resvg
+imagemagick
+
+# For wireguard
+wireguard-tools
+waybar
+jq
+
+# System
+zsh
+bind
+docker
+docker-compose
+
+# Dev tools
+visual-studio-code-bin
+beekeeper-studio-bin
+gitfourchette-bin
+postman-bin
+
+# Extras
+pithos

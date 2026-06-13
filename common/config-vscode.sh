@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Install visual-studio-code-bin from AUR
-yay -S --noconfirm --needed visual-studio-code-bin
-
 # Configuration
 set -e
 
-WAIT_TIME=5
+WAIT_TIME=10
 CONFIG_NAME="VSCode"
 CONFIG="$HOME/.vscode/argv.json"
 CONFIG_ENTRY=',"password-store": "gnome-libsecret"'

@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Install megacmd-bin from AUR
-# yay -S --noconfirm --needed megacmd-bin fuse
-yay -S --noconfirm --needed megacmd fuse
-
 # Configure
 USERNAME="ghrubi@yahoo.com"
 MEGA_DIR="/home/gene/MEGA"
@@ -18,3 +14,6 @@ mega-login $USERNAME $user_password
 echo "Setting up synchronization between $MEGA_DIR and $LOCAL_DIR"
 mkdir $MEGA_DIR
 mega-sync $MEGA_DIR $LOCAL_DIR
+
+# MEGA Symlink
+ln -s $MEGA_DIR "$HOME/$LOCAL_DIR"
