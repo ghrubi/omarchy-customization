@@ -179,7 +179,7 @@ backup_stow_targets() {
 
     bak="$(backup_path_in_place "$dst")"
     log "Backing up: $dst -> $bak"
-    # mv -f -- "$dst" "$bak"
+    mv -f -- "$dst" "$bak"
   done < <(find "$stow_root" -mindepth 2 -type f -print0 | sort -z)
 }
 
@@ -195,8 +195,7 @@ stow_all_packages() {
     package_name="$(basename "$pkg")"
 
     log "Stowing: $package_name"
-    # stow -R -d "$stow_root" -t "$HOME" "$package_name"
-    stow -nvR -d "$stow_root" -t "$HOME" "$package_name"
+    stow -vR -d "$stow_root" -t "$HOME" "$package_name"
   done < <(find "$stow_root" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
 }
 

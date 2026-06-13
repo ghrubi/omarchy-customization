@@ -25,5 +25,5 @@ backup_stow_targets "$STOW_DIR/hosts/$HOST_PROFILE"
 stow_all_packages "$STOW_DIR/common"
 stow_all_packages "$STOW_DIR/hosts/$HOST_PROFILE"
 
-# "$REPO_ROOT/common/install.sh"
-# "$REPO_ROOT/hosts/$HOST_PROFILE/install.sh"
+"$REPO_ROOT/common/install.sh"
+"$REPO_ROOT/hosts/$HOST_PROFILE/install.sh"
