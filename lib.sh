@@ -60,7 +60,7 @@ install_packages() {
 
   log "Installing packages from: $package_file"
   log "Packages: ${packages[@]}"
-  # yay -S --noconfirm --needed "${packages[@]}"
+  yay -S --noconfirm --needed "${packages[@]}"
 }
 
 clone_or_pull() {
@@ -69,10 +69,10 @@ clone_or_pull() {
 
   if [[ -d "$target_dir/.git" ]]; then
     log "Updating repo: $target_dir"
-    # git -C "$target_dir" pull --ff-only
+    git -C "$target_dir" pull --ff-only
   else
     log "Cloning repo: $repo_url -> $target_dir"
-    # git clone "$repo_url" "$target_dir"
+    git clone "$repo_url" "$target_dir"
   fi
 }
 

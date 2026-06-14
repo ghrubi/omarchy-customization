@@ -3,6 +3,7 @@ set -euo pipefail
 
 DOTFILES_REPO_NAME="dotfiles"
 DOTFILES_REPO_URL="https://github.com/ghrubi/$DOTFILES_REPO_NAME.git"
+STOW_DIR="$HOME/dotfiles"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib.sh"
