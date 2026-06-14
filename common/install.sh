@@ -5,6 +5,9 @@ source "$REPO_ROOT/lib.sh"
 
 echo "Installing Common Items..."
 
+# Set theme
+omarchy theme set "Hallow Gene"
+
 # Setup docker
 # sudo systemctl enable --now docker
 enable_service docker
