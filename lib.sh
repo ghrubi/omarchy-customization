@@ -66,13 +66,28 @@ install_packages() {
 clone_or_pull() {
   local repo_url="$1"
   local target_dir="$2"
+  local branch="${3:-}"
 
   if [[ -d "$target_dir/.git" ]]; then
     log "Updating repo: $target_dir"
-    git -C "$target_dir" pull --ff-only
+    if [[ -n "$branch" ]]; then
+      git -C "$target_dir" fetch origin "$branch"
+      if git -C "$target_dir" show-ref --verify --quiet "refs/heads/$branch"; then
+        git -C "$target_dir" switch "$branch"
+      else
+        git -C "$target_dir" switch --track -c "$branch" "origin/$branch"
+      fi
+      git -C "$target_dir" pull --ff-only origin "$branch"
+    else
+      git -C "$target_dir" pull --ff-only
+    fi
   else
     log "Cloning repo: $repo_url -> $target_dir"
-    git clone "$repo_url" "$target_dir"
+    if [[ -n "$branch" ]]; then
+      git clone --branch "$branch" --single-branch "$repo_url" "$target_dir"
+    else
+      git clone "$repo_url" "$target_dir"
+    fi
   fi
 }
 
@@ -209,4 +224,3 @@ detect_host_profile() {
     *) return 1 ;;
   esac
 }
-

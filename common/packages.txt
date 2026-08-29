@@ -25,7 +25,6 @@ imagemagick
 # WireGuard plugin and config import
 wireguard-tools
 zenity
-waybar
 
 # System
 zsh

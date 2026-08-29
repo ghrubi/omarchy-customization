@@ -25,7 +25,5 @@ else
   omarchy plugin add "$WIREGUARD_PLUGIN_URL" --enable --yes
 fi
 
-"$REPO_ROOT/common/waybar-add-mpris.sh"
-"$REPO_ROOT/common/waybar-add-powerprofiles.sh"
 "$REPO_ROOT/common/install-claude.sh"
 "$REPO_ROOT/common/config-vscode.sh"

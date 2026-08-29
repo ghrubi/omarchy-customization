@@ -3,6 +3,7 @@ set -euo pipefail
 
 DOTFILES_REPO_NAME="dotfiles"
 DOTFILES_REPO_URL="https://github.com/ghrubi/$DOTFILES_REPO_NAME.git"
+DOTFILES_REPO_BRANCH="quattro"
 STOW_DIR="$HOME/dotfiles"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -16,7 +17,7 @@ export HOST_PROFILE
 
 start_sudo_keepalive
 
-clone_or_pull "$DOTFILES_REPO_URL" "$STOW_DIR"
+clone_or_pull "$DOTFILES_REPO_URL" "$STOW_DIR" "$DOTFILES_REPO_BRANCH"
 
 install_packages "$SCRIPT_DIR/common/packages.txt"
 install_packages "$SCRIPT_DIR/hosts/$HOST_PROFILE/packages.txt"
