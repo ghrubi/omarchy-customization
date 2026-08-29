@@ -22,10 +22,10 @@ zoxide
 resvg
 imagemagick
 
-# For wireguard
+# WireGuard plugin and config import
 wireguard-tools
+zenity
 waybar
-jq
 
 # System
 zsh
