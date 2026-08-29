@@ -1,0 +1,7 @@
+vscodevim.vim
+shortarrow.line-number-deco
+golang.go
+anthropic.claude-code
+bjarne.hackerman-omarchy
+bjarne.vantablack-omarchy
+catppuccin.catppuccin-vsc

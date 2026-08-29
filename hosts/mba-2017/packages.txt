@@ -1,3 +1,6 @@
 # For mega cli
 megacmd-bin
 fuse
+
+# MBA display font
+ttf-jetbrains-mono-nerd-basic

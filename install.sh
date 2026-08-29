@@ -21,6 +21,11 @@ clone_or_pull "$DOTFILES_REPO_URL" "$STOW_DIR"
 install_packages "$SCRIPT_DIR/common/packages.txt"
 install_packages "$SCRIPT_DIR/hosts/$HOST_PROFILE/packages.txt"
 
+HOST_PRE_STOW="$SCRIPT_DIR/hosts/$HOST_PROFILE/pre-stow.sh"
+if [[ -x "$HOST_PRE_STOW" ]]; then
+  "$HOST_PRE_STOW"
+fi
+
 backup_stow_targets "$STOW_DIR/common"
 backup_stow_targets "$STOW_DIR/hosts/$HOST_PROFILE"
 stow_all_packages "$STOW_DIR/common"
