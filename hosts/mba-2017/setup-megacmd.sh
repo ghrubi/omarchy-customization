@@ -6,7 +6,7 @@ MEGA_DIR="/home/gene/MEGA"
 LOCAL_DIR="/projects"
 
 # Prompt user to login to their MEGA account
-echo "Logging into Mega:"
+echo "Logging into Mega as $USERNAME:"
 read -s -p "Enter your password for the next step: " user_password
 mega-login $USERNAME $user_password
 

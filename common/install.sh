@@ -21,5 +21,6 @@ else
   omarchy plugin add "$WIREGUARD_PLUGIN_URL" --enable --yes
 fi
 
+"$REPO_ROOT/common/setup-nextcloud-home.sh"
 # "$REPO_ROOT/common/install-claude.sh"
 # "$REPO_ROOT/common/config-vscode.sh"

@@ -22,6 +22,9 @@ zoxide
 resvg
 imagemagick
 
+# Home directory cloud sync
+nextcloud-client
+
 # WireGuard plugin and config import
 wireguard-tools
 zenity
